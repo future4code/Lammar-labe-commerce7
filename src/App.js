@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { FaSearch } from 'react-icons/fa'
 import styled from "styled-components"
 import GlobalStyle from './Global'
 import Filtros from './components/Filtros/Filtros'
 import Carrinho from './components/Carrinho/Carrinho'
-import Produtos from './components/Produtos/Produtos';
+import Produtos from './components/Produtos/Produtos'
 
 const Header = styled.header`
   padding: 2em 0;
@@ -42,6 +42,7 @@ const Container = styled.div`
 `
 
 function App() {
+
   return (
     <>
       <Header>
