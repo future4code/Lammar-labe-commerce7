@@ -6,7 +6,7 @@ import Filtros from './components/Filtros/Filtros'
 import Carrinho from './components/Carrinho/Carrinho'
 import Produtos from './components/Produtos/Produtos'
 
-import dadosProdutos from './components/mockDeDados'
+import dadosProdutos from './components/dados/mockDeDados'
 
 const Header = styled.header`
   padding: 2em 0;
