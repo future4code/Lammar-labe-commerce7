@@ -11,6 +11,12 @@ function Filtros () {
     return (
         <ContainerFiltro>
             <h1>Filtros</h1>
+            <select>
+                <option value={"titulo"}>Nenhum</option>
+                <option value={"titulo"}>Titúlo</option>
+                <option value={"preco"}>Valor mínimo</option>
+                <option value={"preco"}>Valor máximo</option>
+            </select>
         </ContainerFiltro>
     )
 }
