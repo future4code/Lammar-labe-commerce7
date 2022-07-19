@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { FaSearch } from 'react-icons/fa'
 import styled from "styled-components"
 import GlobalStyle from './Global'
 import Filtros from './components/Filtros/Filtros'
 import Carrinho from './components/Carrinho/Carrinho'
-import Produtos from './components/Produtos/Produtos';
+import Produtos from './components/Produtos/Produtos'
 
 import dadosProdutos from './components/mockDeDados'
 
@@ -44,6 +44,7 @@ const Container = styled.div`
 `
 
 function App() {
+
   const [produtos] = useState(dadosProdutos);
   const [parametro, setParametro] = useState("titulo");
 
