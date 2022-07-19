@@ -6,6 +6,8 @@ import Filtros from './components/Filtros/Filtros'
 import Carrinho from './components/Carrinho/Carrinho'
 import Produtos from './components/Produtos/Produtos';
 
+import dadosProdutos from './components/mockDeDados'
+
 const Header = styled.header`
   padding: 2em 0;
   display: flex;
@@ -42,6 +44,9 @@ const Container = styled.div`
 `
 
 function App() {
+  const [produtos] = useState(dadosProdutos);
+  const [parametro, setParametro] = useState("titulo");
+
   return (
     <>
       <Header>
@@ -55,7 +60,10 @@ function App() {
       </Header>
 
       <Container>
-        <Filtros/>
+        <Filtros
+          parametro={parametro}
+          setParametro={setParametro}
+        />
         <Produtos/>
         <Carrinho/>
       </Container>
