@@ -1,33 +1,54 @@
 import React from 'react';
 import styled from "styled-components"
 
-const ContainerFiltro = styled.div `
+const ContainerFiltro = styled.div`
+    display: flex;
     background-color: #141e32;
-    height: 100em;
-    padding: 1em;
-   
+    height: 100%;
+    flex-direction: column;
+    text-align: center;
+    flex-wrap: wrap;
+    padding: 0 0.5em;
+    h1{
+        margin-top: 1em;
+       
+        
+    }
+   label{ 
+    margin-top: 8em;
+    
+   }
+   input {
+    text-align: center;
+    font-size:1em;
+    margin: 1em 0 1em 0;
+    width: 10em;
+    height: 1.8em;
+    border-radius: 0.7em;
+   }
 `
 
-function Filtros (props) {
+function Filtros(props) {
     return (
         <ContainerFiltro>
-            <h1>Filtros</h1>
-           
-            <label> Valor Mínimo
-                <input 
-                type="number"
-                placeholder="Valor Mínimo" 
-                value={props.valorMin.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}, { minimumFractionDigits: 2 })} 
-                onChange={(e)=> {props.setValorMin (e.target.value)}} 
-            />
-            </label> 
-            <label> Valor Máximo
-            
-                <input 
-                 type="number"
-                placeholder="Valor Máximo" 
-                value={props.valorMax.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}, { minimumFractionDigits: 2 })} 
-                onChange={(e)=> {props.setValorMax (e.target.value)}} 
+            <h1>Filtro</h1>
+
+            <label>
+                <h2>
+                    Valor:
+                </h2>
+                <input
+                    type="number"
+                    placeholder="Valor Mínimo"
+                    value={props.valorMin.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }, { minimumFractionDigits: 2 })}
+                    onChange={(e) => { props.setValorMin(e.target.value) }}
+                />
+
+                <input
+                    type="number"
+                    placeholder="Valor Máximo"
+                    value={props.valorMax.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }, { minimumFractionDigits: 2 })}
+                    onChange={(e) => { props.setValorMax(e.target.value) }}
                 />
             </label>
         </ContainerFiltro>
