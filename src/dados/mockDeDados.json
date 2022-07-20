@@ -1,0 +1,86 @@
+[
+    {
+        "id": 1,
+        "produto": "Apollo A5-L",
+        "valor": 20000000,
+        "imagem": "https://ids.si.edu/ids/deliveryService?id=NASM-SI-2003-27341&max=900"
+    },
+    {
+        "id": 2,
+        "produto": "Gemini G3-C",
+        "valor": 15000000,
+        "imagem": "https://airandspace.si.edu/sites/default/files/styles/body_large/public/images/2004-44628h.jpg?itok=d3Vnyyah"
+    },
+    {
+        "id": 3,
+        "produto": "Apollo A4-H",
+        "valor": 18000000,
+        "imagem": "https://ids.si.edu/ids/deliveryService?id=NASM-SI-2003-27337&max=900"
+    },
+    {
+        "id": 4,
+        "produto": "RX-2A",
+        "valor": 45000000,
+        "imagem": "https://ids.si.edu/ids/deliveryService?id=NASM-SI-2004-10882&max=900"
+    },
+    {
+        "id": 5,
+        "produto": "Apollo A7-LB EVA",
+        "valor": 34000000,
+        "imagem": "https://airandspace.si.edu/sites/default/files/images/5263h.jpg"
+    },
+    {
+        "id": 6,
+        "produto": "AX-3",
+        "valor": 19000000,
+        "imagem": "https://airandspace.si.edu/sites/default/files/images/5263h.jpg"
+    },
+    {
+        "id": 7,
+        "produto": "RX-2 Legs",
+        "valor": 25000000,
+        "imagem": "https://ids.si.edu/ids/deliveryService?id=NASM-SI-2004-10863&max=900"
+    },
+    {
+        "id": 8,
+        "produto": "MK IV",
+        "valor": 33000000,
+        "imagem": "https://ids.si.edu/ids/deliveryService?id=NASM-SI-2003-27305-2&max=900"
+    },
+    {
+        "id": 9,
+        "produto": "MK II R",
+        "valor": 28000000,
+        "imagem": "https://ids.si.edu/ids/deliveryService?id=NASM-SI-2004-61960"
+    },
+    {
+        "id": 10,
+        "produto": "MK II O",
+        "valor": 23000000,
+        "imagem": "https://ids.si.edu/ids/deliveryService?id=NASM-2004-59968&max_w=900"
+    },
+    {
+        "id": 11,
+        "produto": "RX-3 MOL",
+        "valor": 12000000,
+        "imagem": "https://ids.si.edu/ids/deliveryService?id=NASM-SI-2003-37180&max=900"
+    },
+    {
+        "id": 12,
+        "produto": "Gemini G4-C",
+        "valor": 20000000,
+        "imagem": "https://ids.si.edu/ids/deliveryService?id=NASM-NASM2021-04134-000002&max=900"
+    },
+    {
+        "id": 13,
+        "produto": "MK V",
+        "valor": 31000000,
+        "imagem": "https://ids.si.edu/ids/deliveryService?id=NASM-SI-2003-27315-2&max=900"
+    },
+    {
+        "id": 14,
+        "produto": "Soviet Sokol KV-2",
+        "valor": 38000000,
+        "imagem": "https://ids.si.edu/ids/deliveryService?id=NASM-2005-26165&max=900"
+    }
+]

@@ -7,16 +7,29 @@ const ContainerFiltro = styled.div `
     padding: 1em;
    
 `
-function Filtros () {
+
+function Filtros (props) {
     return (
         <ContainerFiltro>
             <h1>Filtros</h1>
-            <select>
-                <option value={"titulo"}>Nenhum</option>
-                <option value={"titulo"}>Titúlo</option>
-                <option value={"preco"}>Valor mínimo</option>
-                <option value={"preco"}>Valor máximo</option>
-            </select>
+           
+            <label> Valor Mínimo
+                <input 
+                type="number"
+                placeholder="Valor Mínimo" 
+                value={props.valorMin.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}, { minimumFractionDigits: 2 })} 
+                onChange={(e)=> {props.setValorMin (e.target.value)}} 
+            />
+            </label> 
+            <label> Valor Máximo
+            
+                <input 
+                 type="number"
+                placeholder="Valor Máximo" 
+                value={props.valorMax.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}, { minimumFractionDigits: 2 })} 
+                onChange={(e)=> {props.setValorMax (e.target.value)}} 
+                />
+            </label>
         </ContainerFiltro>
     )
 }
