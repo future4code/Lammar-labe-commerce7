@@ -4,7 +4,7 @@ import styled from "styled-components"
 const ContainerProdutos = styled.div `
     display:flex;
     flex-direction: column;
-    height: 20em;
+    height: 23em;
     width: 15em;
     border: 3px solid white;
     border-radius: 10px;
@@ -14,6 +14,7 @@ const ContainerProdutos = styled.div `
     margin: 1em;
     padding-bottom: 1em;
     padding-top: 1em;
+    
 
     button {
         border-radius: 5px;
@@ -40,9 +41,9 @@ function Produtos (props) {
     return (
         <div>
             <ContainerProdutos>
-                <img alt="imagem do traje espacial" src="https://ids.si.edu/ids/deliveryService?id=NASM-SI-2003-27341&max=900"/>
-                <p> nome do produto </p>
-                <p> R$ </p>
+                <img alt="imagem do traje espacial" src={props.prod.imagem}/>
+                <p> {props.prod.produto} </p>
+                <p>{props.prod.valor.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}, { minimumFractionDigits: 2 })} </p>
                 <button>Adicionar ao carrinho</button>
             </ContainerProdutos>
         </div>

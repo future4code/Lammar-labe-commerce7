@@ -5,8 +5,7 @@ import GlobalStyle from './Global'
 import Filtros from './components/Filtros/Filtros'
 import Carrinho from './components/Carrinho/Carrinho'
 import Produtos from './components/Produtos/Produtos'
-
-import dadosProdutos from './dados/mockDeDados'
+import dadosProdutos from './dados/mockDeDados.json'
 
 const Header = styled.header`
   padding: 2em 0;
@@ -41,19 +40,30 @@ const Container = styled.div`
   grid-template-columns: 1fr 3fr 1fr;
   font-size: 1em;
  
+  div {
+    display: flex;
+    
+    flex-wrap:wrap;
+
+  }
 `
 
 function App() {
 
-  const [produtos] = useState(dadosProdutos);
-  const [parametro, setParametro] = useState("titulo");
+  const [produto] = useState(dadosProdutos)
+  const [titulo, setTitulo] = useState("");
+  const [valorMin, setValorMin] = useState(0);
+  const [valorMax, setValorMax] = useState(100000000);
 
   return (
     <>
       <Header>
         <h1>Space Store</h1>
         <div>
-          <input type="seach" placeholder="Busca"></input>
+          <input type="seach" 
+          placeholder="Busca"
+          value={titulo} 
+          onChange={(e)=> {setTitulo (e.target.value)}}></input>
           <button>
             <FaSearch />
           </button>
@@ -62,10 +72,28 @@ function App() {
 
       <Container>
         <Filtros
-          parametro={parametro}
-          setParametro={setParametro}
+          titulo={titulo}
+          valorMin={valorMin}
+          valorMax={valorMax}
+          setTitulo={setTitulo}
+          setValorMin={setValorMin}
+          setValorMax={setValorMax}
         />
-        <Produtos/>
+        <div>
+          {produto
+            .filter(prod => {
+              return prod.produto.includes(titulo)
+            })
+            .filter (prod => {
+              return prod.valor >= valorMin || valorMin === ""
+            })
+            .filter (prod => {
+              return prod.valor <= valorMax || valorMax === ""
+            })
+            .map(prod => {
+              return <Produtos prod={prod} id={prod.id}/>
+            })}
+        </div>
         <Carrinho/>
       </Container>
       <GlobalStyle/>
