@@ -114,7 +114,7 @@ function App() {
           <label>Ordenar por:
             <select
               value={ordenacao}
-              onChange={e => { setOrdenacao(e.target.value) }}
+              onChange={(e) => { setOrdenacao(e.target.value) }}
             >
               <option value={"produto"}>Produto</option>
               <option value={"valor"}>Valor</option>
