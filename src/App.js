@@ -85,6 +85,15 @@ function App() {
   const [valorMin, setValorMin] = useState(0);
   const [valorMax, setValorMax] = useState(100000000);
   const [ordenacao, setOrdenacao] = useState("produto")
+  const [ordemCresDec, setOrdemCresDec] = useState("asc")
+  const [addProduto, setAddProduto] = useState([produto])
+
+  const adicionarProduto = () => {
+    const novoProduto = {produto:produto.produto, valor:produto.valor, imagem: produto.imagem}
+    setAddProduto([...addProduto, novoProduto])
+    console.log(adicionarProduto)
+  }
+
   return (
     <>
       <Header>
@@ -98,17 +107,17 @@ function App() {
             <FaSearch />
           </button>
         </div>
-      </Header>
+        </Header>
 
-      <Container>
-        <Filtros
-          titulo={titulo}
-          valorMin={valorMin}
-          valorMax={valorMax}
-          setTitulo={setTitulo}
-          setValorMin={setValorMin}
-          setValorMax={setValorMax}
-        />
+        <Container>
+          <Filtros
+            titulo={titulo}
+            valorMin={valorMin}
+            valorMax={valorMax}
+            setTitulo={setTitulo}
+            setValorMin={setValorMin}
+            setValorMax={setValorMax}
+          />
         <ProdutosOrdenados>
 
           <label>Ordenar por:
@@ -119,12 +128,20 @@ function App() {
               <option value={"produto"}>Produto</option>
               <option value={"valor"}>Valor</option>
             </select>
+            <select
+              value={ordemCresDec}
+              onChange={(ev) => setOrdemCresDec(ev.target.value)}
+            >
+              <option value={"asc"}>Crescente</option>
+              <option value={"desc"}>Decrescente</option>
+
+            </select>
           </label>
 
           <Prod>
             {produto
               .filter(prod => {
-                return prod.produto.includes(titulo)
+                return prod.produto.toLocaleLowerCase().includes(titulo) || prod.produto.toLocaleUpperCase().includes(titulo)
               })
               .filter(prod => {
                 return prod.valor >= valorMin || valorMin === ""
@@ -141,18 +158,25 @@ function App() {
                     return atualProd.produto.localeCompare(proxProd.produto)
                 }
               })
+              .sort(()=> {
+                if (ordemCresDec === "asc") {
+                  return 0
+                } else {
+                  return -1  
+                }
+                })
               .map(prod => {
-                return <Produtos prod={prod} id={prod.id} />
+                return <Produtos prod={prod} id={prod.id} adicionarProduto={adicionarProduto} />
               })}
           </Prod>
         </ProdutosOrdenados>
 
-        <Carrinho />
+        <Carrinho/>
 
       </Container>
 
       <Footer>
-        <h2>Space Store, sua expeciência de outro mundo.</h2>
+        <h2>Space Store, sua experiência de outro mundo.</h2>
       </Footer>
 
       <GlobalStyle />
