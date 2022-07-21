@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components"
 
 const ContainerProdutos = styled.div`
@@ -46,7 +46,7 @@ function Produtos(props) {
                 <img alt="imagem do traje espacial" src={props.prod.imagem} />
                 <p> {props.prod.produto} </p>
                 <p>{props.prod.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }, { minimumFractionDigits: 2 })} </p>
-                <button>Adicionar ao carrinho</button>
+                <button onClick={props.adicionarProduto}>Adicionar ao carrinho</button>
             </ContainerProdutos>
         </div>
     )
