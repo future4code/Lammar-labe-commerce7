@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components"
-
+import {FaFilter} from 'react-icons/fa'
 const ContainerFiltro = styled.div`
     display: flex;
     background-color: #141e32;
@@ -10,10 +10,15 @@ const ContainerFiltro = styled.div`
     flex-wrap: wrap;
     padding: 0 0.5em;
     h1{
-        margin-top: 1em;
-       
-        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5em;
+        margin: 0.5em;
+        background-color: #192337;
+        padding: 1em        
     }
+
    label{ 
     margin-top: 8em;
     
@@ -31,7 +36,10 @@ const ContainerFiltro = styled.div`
 function Filtros(props) {
     return (
         <ContainerFiltro>
-            <h1>Filtro</h1>
+            <h1>
+                Filtro
+                <FaFilter/>
+            </h1>
 
             <label>
                 <h2>
