@@ -82,8 +82,8 @@ function App() {
 
   const [produto] = useState(dadosProdutos)
   const [titulo, setTitulo] = useState("");
-  const [valorMin, setValorMin] = useState(0);
-  const [valorMax, setValorMax] = useState(100000000);
+  const [valorMin, setValorMin] = useState(-Infinity);
+  const [valorMax, setValorMax] = useState(Infinity);
   const [ordenacao, setOrdenacao] = useState("produto")
   const [ordemCresDec, setOrdemCresDec] = useState("asc")
   const [addProduto, setAddProduto] = useState([produto])
@@ -141,7 +141,7 @@ function App() {
           <Prod>
             {produto
               .filter(prod => {
-                return prod.produto.toLocaleLowerCase().includes(titulo) || prod.produto.toLocaleUpperCase().includes(titulo)
+                return prod.produto.toLocaleLowerCase().includes(titulo) || prod.produto.toLocaleUpperCase().includes(titulo) || prod.produto.includes(titulo)
               })
               .filter(prod => {
                 return prod.valor >= valorMin || valorMin === ""
