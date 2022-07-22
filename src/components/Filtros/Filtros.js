@@ -39,6 +39,7 @@ function Filtros(props) {
                 </h2>
                 <input
                     type="number"
+                    step='1000000'
                     placeholder="Valor Mínimo"
                     value={props.valorMin.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }, { minimumFractionDigits: 2 })}
                     onChange={(e) => { props.setValorMin(e.target.value) }}
@@ -46,6 +47,7 @@ function Filtros(props) {
 
                 <input
                     type="number"
+                    step='1000000'
                     placeholder="Valor Máximo"
                     value={props.valorMax.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }, { minimumFractionDigits: 2 })}
                     onChange={(e) => { props.setValorMax(e.target.value) }}
