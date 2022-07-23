@@ -127,7 +127,7 @@ function App() {
     const novoProdAddCarrinho = carrinhoDeCompras
       .map((produtos) => {
         if (produtos.id === id) {
-          return { ...produtos, quantidade: produtos.quantidade - 1 };
+          return {...produtos, quantidade: produtos.quantidade - 1};
         }
         return produtos;
       })
