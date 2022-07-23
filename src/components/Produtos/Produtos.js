@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from "styled-components"
+import {FaShoppingCart} from 'react-icons/fa'
 
 const ContainerProdutos = styled.div`
     display:flex;
     flex-direction: column;
-    height: 18em;
+    height: 18.3em;
     width: 10em;
     border: 3px solid white;
     border-radius: 10px;
@@ -17,22 +18,19 @@ const ContainerProdutos = styled.div`
     
 
     button {
-        border-radius: 0.5em;
-        border: 2px solid white;
-        width: 11em;
-        height: 4em;
-        font-size:0.8em;
-        margin-top: 0.5em;
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        font-size: 1.5em;
+        padding-top: 0.5em;
     }
 
     button:hover {
-        background-color: black;
-        border: 2px solid black;
-        color: white;
+        color: black;
     }
 
     img {
-        height: 10em;
+        height: 12em;
         border-radius: 10px;
         border: 2px solid white;
 
@@ -46,7 +44,7 @@ function Produtos(props) {
                 <img alt="imagem do traje espacial" src={props.prod.imagem} />
                 <p> {props.prod.produto} </p>
                 <p>{props.prod.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }, { minimumFractionDigits: 2 })} </p>
-                <button onClick={() => props.addProdutoCarrinho(props.prod.id)}>Adicionar ao carrinho</button>
+                <button onClick={() => props.addProdutoCarrinho(props.prod.id)}><FaShoppingCart/></button>
             </ContainerProdutos>
         </div>
     )
