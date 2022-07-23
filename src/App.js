@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { FaSearch } from 'react-icons/fa'
 import styled from "styled-components"
 import GlobalStyle from './Global'
@@ -86,14 +86,54 @@ function App() {
   const [valorMax, setValorMax] = useState(Infinity);
   const [ordenacao, setOrdenacao] = useState("produto")
   const [ordemCresDec, setOrdemCresDec] = useState("asc")
-  const [addProduto, setAddProduto] = useState([produto])
+  const [carrinhoDeCompras, setCarrinhoDeCompras] = useState(() => {
 
-  const adicionarProduto = () => {
-    const novoProduto = {produto:produto.produto, valor:produto.valor, imagem: produto.imagem}
-    setAddProduto([...addProduto, novoProduto])
-    console.log(adicionarProduto)
-  }
+    if (localStorage.getItem("carrinhoDeCompras")) {
+      return JSON.parse(localStorage.getItem("carrinhoDeCompras"));
+    }
+    return [];
+  })
 
+  useEffect(() => {
+    localStorage.setItem("carrinhoDeCompras", JSON.stringify(carrinhoDeCompras));
+    }, [carrinhoDeCompras]
+  )
+  
+  const addProdutoCarrinho = (id) => {
+
+    const indexCarrinho = carrinhoDeCompras.findIndex((prodCarrinho) => {
+      return prodCarrinho.id === id;
+    });
+   
+    if (indexCarrinho < 0) {
+      const novoProdutoAdd = {
+        ...produto.find((prodCarrinho) => prodCarrinho.id === id),
+        quantidade: 1,
+      };
+      const novoProdAddCarrinho = [...carrinhoDeCompras, novoProdutoAdd];
+      setCarrinhoDeCompras(novoProdAddCarrinho);
+     
+    } else {
+      const novoProdAddCarrinho = carrinhoDeCompras.map(produto => {
+        if (produto.id === id) {
+          return { ...produto, quantidade: produto.quantidade + 1 };
+        }
+        return produto;
+      });
+      setCarrinhoDeCompras(novoProdAddCarrinho);
+    }
+  };
+  const removerProdutoDoCarrinho = (id) => {
+    const novoProdAddCarrinho = carrinhoDeCompras
+      .map((produtos) => {
+        if (produtos.id === id) {
+          return { ...produtos, quantidade: produtos.quantidade - 1 };
+        }
+        return produtos;
+      })
+      .filter((produtos) => produtos.quantidade > 0);
+    setCarrinhoDeCompras(novoProdAddCarrinho);
+  };
   return (
     <>
       <Header>
@@ -166,12 +206,21 @@ function App() {
                 }
                 })
               .map(prod => {
-                return <Produtos prod={prod} id={prod.id} adicionarProduto={adicionarProduto} />
+                return (
+                  <Produtos
+                    prod={prod}
+                    id={prod.id}
+                    addProdutoCarrinho={addProdutoCarrinho}
+                  />
+                )
               })}
           </Prod>
         </ProdutosOrdenados>
 
-        <Carrinho/>
+        <Carrinho
+         carrinhoDeCompras={carrinhoDeCompras}
+         removerProdutoDoCarrinho={removerProdutoDoCarrinho}
+        />
 
       </Container>
 
