@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components"
 import {FaFilter} from 'react-icons/fa'
+
 const ContainerFiltro = styled.div`
     display: flex;
     background-color: #141e32;
@@ -9,6 +10,7 @@ const ContainerFiltro = styled.div`
     text-align: center;
     flex-wrap: wrap;
     padding: 0 0.5em;
+
     h1{
         display: flex;
         justify-content: center;
@@ -19,18 +21,18 @@ const ContainerFiltro = styled.div`
         padding: 1em        
     }
 
-   label{ 
-    margin-top: 8em;
-    
-   }
-   input {
-    text-align: center;
-    font-size:1em;
-    margin: 1em 0 1em 0;
-    width: 10em;
-    height: 1.8em;
-    border-radius: 0.7em;
-   }
+    label{ 
+        margin-top: 8em;
+    }
+
+    input {
+        text-align: center;
+        font-size:1em;
+        margin: 1em 0 1em 0;
+        width: 10em;
+        height: 1.8em;
+        border-radius: 0.7em;
+    }
 `
 
 function Filtros(props) {

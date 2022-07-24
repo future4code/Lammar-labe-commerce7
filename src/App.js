@@ -39,23 +39,30 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 0.5fr 3fr 1fr;
   font-size: 1em;
- 
+  margin-left: 1em;
+  margin-right: 1em;
+
   div {
     display: flex;
     flex-wrap:wrap;
+    justify-content: start;
   }
 `
 const ProdutosOrdenados = styled.div`
   margin-top: 1em; 
   display : flex;
+
   label {
-    margin-left: 1em;
+    display: flex;
+    flex-direction: row;
+    margin-left: 1.5em;
     font-size:1.5em;
+    margin-bottom: 0.5em;
   }
   select{
     font-size:0.8em;
     margin-left: 1.2em;
-    width: 10em;
+    width: 14em;
     height: 1.8em;
     border-radius: 0.7em;
     text-align: center;
@@ -86,8 +93,8 @@ function App() {
   const [valorMax, setValorMax] = useState(Infinity);
   const [ordenacao, setOrdenacao] = useState("produto")
   const [ordemCresDec, setOrdemCresDec] = useState("asc")
-  const [carrinhoDeCompras, setCarrinhoDeCompras] = useState(() => {
 
+  const [carrinhoDeCompras, setCarrinhoDeCompras] = useState(() => {
     if (localStorage.getItem("carrinhoDeCompras")) {
       return JSON.parse(localStorage.getItem("carrinhoDeCompras"));
     }
@@ -104,7 +111,7 @@ function App() {
     const indexCarrinho = carrinhoDeCompras.findIndex((prodCarrinho) => {
       return prodCarrinho.id === id;
     });
-   
+
     if (indexCarrinho < 0) {
       const novoProdutoAdd = {
         ...produto.find((prodCarrinho) => prodCarrinho.id === id),
@@ -112,7 +119,6 @@ function App() {
       };
       const novoProdAddCarrinho = [...carrinhoDeCompras, novoProdutoAdd];
       setCarrinhoDeCompras(novoProdAddCarrinho);
-     
     } else {
       const novoProdAddCarrinho = carrinhoDeCompras.map(produto => {
         if (produto.id === id) {
@@ -123,6 +129,7 @@ function App() {
       setCarrinhoDeCompras(novoProdAddCarrinho);
     }
   };
+
   const removerProdutoDoCarrinho = (id) => {
     const novoProdAddCarrinho = carrinhoDeCompras
       .map((produtos) => {
@@ -134,6 +141,7 @@ function App() {
       .filter((produtos) => produtos.quantidade > 0);
     setCarrinhoDeCompras(novoProdAddCarrinho);
   };
+
   return (
     <>
       <Header>
@@ -158,14 +166,14 @@ function App() {
             setValorMin={setValorMin}
             setValorMax={setValorMax}
           />
+        
         <ProdutosOrdenados>
-
           <label>Ordenar por:
             <select
               value={ordenacao}
               onChange={(e) => { setOrdenacao(e.target.value) }}
             >
-              <option value={"produto"}>Produto</option>
+              <option value={"produto"}>Produto (A-Z)</option>
               <option value={"valor"}>Valor</option>
             </select>
             <select
@@ -218,8 +226,8 @@ function App() {
         </ProdutosOrdenados>
 
         <Carrinho
-         carrinhoDeCompras={carrinhoDeCompras}
-         removerProdutoDoCarrinho={removerProdutoDoCarrinho}
+          carrinhoDeCompras={carrinhoDeCompras}
+          removerProdutoDoCarrinho={removerProdutoDoCarrinho}
         />
 
       </Container>

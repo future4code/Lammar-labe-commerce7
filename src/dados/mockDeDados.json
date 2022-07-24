@@ -25,7 +25,7 @@
     },
     {
         "id": 5,
-        "produto": "Apollo A7-LB EVA",
+        "produto": "Apollo A7-LB",
         "valor": 34000000,
         "imagem": "https://airandspace.si.edu/sites/default/files/images/5263h.jpg"
     },
@@ -79,7 +79,7 @@
     },
     {
         "id": 14,
-        "produto": "Soviet Sokol KV-2",
+        "produto": "Soviet Sokol",
         "valor": 38000000,
         "imagem": "https://ids.si.edu/ids/deliveryService?id=NASM-2005-26165&max=900"
     }
