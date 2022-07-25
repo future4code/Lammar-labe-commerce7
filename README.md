@@ -2,7 +2,7 @@
 
 Esse projeto teve como objetivo a criação de um site e-commerce para a loja Space Store. A loja é especializada em venda de roupas espaciais.
 
-[Clique aqui](http://habitual-judge.surge.sh) para conferir esse lojinha! :star_struck:
+[Clique aqui](http://habitual-judge.surge.sh) para conferir essa lojinha! :star_struck:
 
 ## O que funciona?
 - Filtros por nome do produto, valor mínimo e valor máximo;
